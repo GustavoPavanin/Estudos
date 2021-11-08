@@ -133,4 +133,7 @@
 			<item value="C:\Users\Gustavo.pavanim\OneDrive\Documentos\workspace_eclipse\bytebank-v1"/>
 		</list>
 	</section>
+	<section name="NewPackageWizardPage">
+		<item key="create_package_info_java" value="false"/>
+	</section>
 </section>
