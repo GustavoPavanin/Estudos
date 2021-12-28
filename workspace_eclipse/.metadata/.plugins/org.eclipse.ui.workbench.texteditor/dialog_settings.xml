@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Output"/>
+		<item key="selection" value="selecionarContato"/>
 		<list key="findhistory">
+			<item value="selecionarContato"/>
+			<item value="select"/>
 			<item value="Input"/>
 		</list>
 		<list key="replacehistory">

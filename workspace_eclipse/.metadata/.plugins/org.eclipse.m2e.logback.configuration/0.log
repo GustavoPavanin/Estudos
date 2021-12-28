@@ -31,3 +31,8 @@
 2021-12-23 11:23:30,676 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2021-12-23 16:41:12,105 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2021-12-23 16:48:43,138 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-12-27 08:17:31,510 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-12-28 08:50:33,503 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-12-28 10:59:43,057 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-12-28 11:01:15,421 [main] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: G:\Estudos\workspace_eclipse\.metadata\com.genuitec.eclipse.webclipse.livepreview\0\store
+2021-12-28 11:01:19,265 [Worker-10: Queuing new CSS Event...] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: G:\Estudos\workspace_eclipse\.metadata\com.genuitec.eclipse.webclipse.livepreview\1\store
