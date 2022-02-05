@@ -7,6 +7,10 @@ app.use(express.json());
 
 const PORT = 3000;
 
+app.listen(PORT, () => {
+    console.log(`Server running on PORT ${PORT} ----- Aplicação Iniciada`);
+});
+
 const users = [
     {
         id: crypto.randomUUID(),
@@ -26,7 +30,7 @@ app.get('/api/user/:id', (request, response, next) =>{
 
     const user = users.find((user) => user.id === id);
     if (users.indexOf(users.find((user) => user.id === id)) < 0 ){
-        response.status(404).send("Usuário não encontrado");
+        response.status(404).send({ message: "Usuário não encontrado!"});
     } else{
         response.send({ user });
     }
@@ -48,19 +52,12 @@ app.post('/api/user/', (request, response, next) =>{
     response.send({ message: "Usuário criado!", user});
 
 });
-
-
-
-
-app.listen(PORT, () => {
-    console.log(`Server running on PORT ${PORT} ----- Aplicação Iniciada`);
-});
 // Fazer lógica de Update, recebendo parâmetro de usuário e o body
 // Buscando o usuário e atualizando o mesmo
 app.put('/api/user/:id', (request, response) => {
 
     const id = request.params.id;
-    const position = users.indexOf(users.find((user) => user.id === id));
+    const position = users.findIndex((user) => user.id === id);
 
     if(position < 0){
         response.status(404).send({ message: "Usuário não encontrado!"});
@@ -72,7 +69,7 @@ app.put('/api/user/:id', (request, response) => {
             city,
           };
           users[position] = user;
-        response.status(200).json('Usuário atualizado')
+        response.status(200).json({ message: 'Usuário atualizado'});
     }
    
 })
@@ -81,7 +78,7 @@ app.put('/api/user/:id', (request, response) => {
 // Se der certo retornar um objeto com mensagem sucesso!
 app.delete('/api/user/:id', (request, response) =>{
     const id = request.params.id;
-    const pos = users.indexOf(users.find((user) => user.id === id));
+    const pos = users.findIndex((user) => user.id === id);
     users.splice(pos, 1);
     if(pos < 0){
         response.status(404).send({ message: "Usuário não encontrado!"});
