@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 
@@ -12,6 +13,7 @@ import br.com.alura.loja.modelo.ItemPedido;
 import br.com.alura.loja.modelo.Pedido;
 import br.com.alura.loja.modelo.Produto;
 import br.com.alura.loja.util.JPAUtil;
+import br.com.alura.loja.vo.RelatorioDeVendasVo;
 
 public class CadastroDePedido {
 	public static void main(String[] args) {
@@ -36,12 +38,15 @@ public class CadastroDePedido {
 		
 		BigDecimal valorTotal = pedidoDao.valorTotalVentido();
 		System.out.println("Valor Total: " + valorTotal);
+		
+		List<RelatorioDeVendasVo> relatorioDeVendas = pedidoDao.relatorioDeVendas();
+		relatorioDeVendas.forEach(System.out::println);
+		
 	}
 
 	private static void popularBancoDeDados() {
 		Categoria categoria = new Categoria("Instrumentos");
 		Produto produto = new Produto("Banjo 5 cordas", "Banjo Bluegrass", new BigDecimal("2000"), categoria);
-
 		Cliente cliente = new Cliente("Rodrigo", "123456");
 
 		EntityManager em = JPAUtil.getEntityManager();
