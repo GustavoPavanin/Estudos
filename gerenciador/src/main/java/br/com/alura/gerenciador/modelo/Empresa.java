@@ -1,9 +1,20 @@
 package br.com.alura.gerenciador.modelo;
 
+import java.util.Date;
+
 public class Empresa {
 	private Long id;
 	
 	private String nome;
+	private Date dataAbertura = new Date();
+
+	public Date getDataAbertura() {
+		return dataAbertura;
+	}
+
+	public void setDataAbertura(Date dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
 
 	public String getNome() {
 		return nome;
