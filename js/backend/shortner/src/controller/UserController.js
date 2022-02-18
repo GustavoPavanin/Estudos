@@ -3,13 +3,22 @@
 import UserModel from "../model/UserModel.js";
 //const users = require("../model/UserModel")
 import bcryptjs from "bcryptjs";
+import jsonwebtoken from "jsonwebtoken";
+import detEnv from 'dotenv';
 
-const hashPassword = (password) => {
-    const salt = bcryptjs.genSaltSync(10);
-    const hash = bcryptjs.hashSync(password, salt);
-}
+detEnv.config();
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 class UserController {
+
+    hashPassword(password){
+        const salt = bcryptjs.genSaltSync(10);
+        const hash = bcryptjs.hashSync(password, salt);
+    
+        return hash;
+    }
+
     async getOne(request, response){
         // Escrever validação:
         // Verificar se o usuário existe, caso não retornar status 404 com mensagem de erro
@@ -36,6 +45,27 @@ class UserController {
         response.send({users});
     }
 
+    
+    async login(request, response) {
+        const {email, password} = request.body;
+    
+        const user = await UserModel.findOne({email}).lean();
+        
+        if(!user){
+            return response.status(404).json({message: "User not found"});
+        }
+
+        if(!bcryptjs.compareSync(password, user.password)){
+            return response.status(404).json({message: "Password Invalid"});
+        }
+
+        const token = jsonwebtoken.sign({
+            id: user.id,
+            name: user.name,
+            email: user.email
+        }, JWT_SECRET/*, {expiresIn: 600}*//*expiração do token*/);
+        return response.json({ token });
+    }
 
     // Fazer lógica de Delete, recebendo o parâmetro do usuário (ID) e removendo o da lista
     // Se der certo retornar um objeto com mensagem sucesso!
@@ -55,6 +85,7 @@ class UserController {
     async store(request, response){
 
         const { name, phones, email, password, birthDate, state } = request.body;
+
         try{
             const user = await UserModel.create({
                 name,
@@ -64,7 +95,7 @@ class UserController {
                 birthDate,
                 state,
             });
-            
+
             return response.send({ message: "Usuário criado!", user});
         }catch (error){
             console.log(error.stack);
@@ -95,6 +126,8 @@ class UserController {
     }
 
 }
+
+
 
 
 export default UserController
