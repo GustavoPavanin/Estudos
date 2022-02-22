@@ -13,15 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 
-public class NovaEmpresa {
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class NovaEmpresa implements Acao {
+	public String executa(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		System.out.println("Cadastrando nova empresa");
 
 		String nomeEmpresa = request.getParameter("nome");
 		String paramDataAbertura = request.getParameter("data");
-		
+
 		Date dataAbertura = null;
-		
+
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			dataAbertura = sdf.parse(paramDataAbertura);
@@ -38,6 +39,6 @@ public class NovaEmpresa {
 
 		banco.adiciona(empresa);
 
-		response.sendRedirect("entrada?acao=ListaEmpresas" );
+		return "redirect:entrada?acao=ListaEmpresas";
 	}
 }

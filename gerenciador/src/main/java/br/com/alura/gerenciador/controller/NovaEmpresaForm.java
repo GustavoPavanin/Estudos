@@ -1,9 +1,11 @@
 package br.com.alura.gerenciador.controller;
 
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,15 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 
-public class RemoveEmpresa implements Acao {
+public class NovaEmpresaForm implements Acao {
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String paramId = request.getParameter("id");
-		Integer id = Integer.valueOf(paramId);
 
-		Banco banco = new Banco();
-		banco.removeEmpresa(id);
-
-		return "redirect:entrada?acao=ListaEmpresas";
+		return "forward:formNovaEmpresa.jsp";
 	}
 }
