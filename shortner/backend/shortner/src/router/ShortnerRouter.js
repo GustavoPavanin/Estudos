@@ -9,7 +9,6 @@ const router = express.Router();
 //const UserController = require("../controller/UserController"); /* sem type modules */ 
 
 //router.get('/api/user', (request, response, next) => UserController.index(request, response) );
-//router.post('/api/login', shortnerController.login);
 router.get('/api/shortner',shortnerController.index);
 router.get('/api/shortner/:id', shortnerController.getOne);
 router.post('/api/shortner/', shortnerController.store);
