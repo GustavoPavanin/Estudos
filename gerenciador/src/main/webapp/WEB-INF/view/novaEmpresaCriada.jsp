@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <body>
-
+	<c:import url="header.jsp"/>
 	<c:if test="${not empty empresa}"> 
 		Empresa ${ empresa } cadastrada com sucesso!
 	</c:if>

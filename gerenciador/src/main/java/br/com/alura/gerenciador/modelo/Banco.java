@@ -35,6 +35,8 @@ public class Banco {
 		Usuario u2 = new Usuario();
 		u2.setLogin("ana");
 		u2.setSenha("123");
+		listaUsuarios.add(u1);
+		listaUsuarios.add(u2);
 	}
 
 	public void adiciona(Empresa empresa) {

@@ -12,7 +12,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <body>
-
+	<c:import url="header.jsp"/>
 	<form action="${linkEntradaServlet}" method="post">
 
 		Nome: <input type="text" name="nome" value="${empresa.nome}" /> </br> Data de

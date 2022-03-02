@@ -8,19 +8,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.alura.gerenciador.controller.Acao;
-import br.com.alura.gerenciador.controller.AlteraEmpresa;
-import br.com.alura.gerenciador.controller.ListaEmpresas;
-import br.com.alura.gerenciador.controller.MostraEmpresa;
-import br.com.alura.gerenciador.controller.NovaEmpresa;
-import br.com.alura.gerenciador.controller.NovaEmpresaForm;
-import br.com.alura.gerenciador.controller.RemoveEmpresa;
+//import br.com.alura.gerenciador.controller.AlteraEmpresa;
+//import br.com.alura.gerenciador.controller.ListaEmpresas;
+//import br.com.alura.gerenciador.controller.MostraEmpresa;
+//import br.com.alura.gerenciador.controller.NovaEmpresa;
+//import br.com.alura.gerenciador.controller.NovaEmpresaForm;
+//import br.com.alura.gerenciador.controller.RemoveEmpresa;
 
 /**
  * Servlet implementation class UnicaEntradaServlet
  */
-@WebServlet("/entrada")
+//@WebServlet(urlPatterns="/entrada")
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,6 +29,16 @@ public class ControllerServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String paramAcao = request.getParameter("acao");
+
+//		HttpSession sessao = request.getSession();
+//		boolean usuarioLogado = (sessao.getAttribute("usuarioLogado") != null);
+//		boolean acaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));
+//
+//		if (acaoProtegida && !usuarioLogado) {
+//			response.sendRedirect("entrada?acao=LoginForm");
+//			return;
+//		}
+
 		String nomeDaClasse = "br.com.alura.gerenciador.controller." + paramAcao;
 
 		String nome;
@@ -38,6 +49,8 @@ public class ControllerServlet extends HttpServlet {
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 			throw new ServletException(e);
 		}
+
+		System.out.println(nome);
 
 		String[] tipoEEndereco = nome.split(":");
 		if (tipoEEndereco[0].equals("forward")) {

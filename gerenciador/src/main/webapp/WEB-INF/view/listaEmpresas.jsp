@@ -12,7 +12,11 @@
 <title>Empresas</title>
 </head>
 <body>
+	<c:import url="header.jsp"/>
 
+	Usuario Logado: ${ usuarioLogado.login }
+	
+	<br>
 	<c:if test="${not empty empresa}"> 
 		Empresa ${ empresa } cadastrada com sucesso!
 	</c:if>

@@ -11,7 +11,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <body>
-	
+	<c:import url="header.jsp"/>
 	<form action="${linkServletNovaEmpresa}" method="post">
 		
 		Nome: <input type="text" name="nome" />
