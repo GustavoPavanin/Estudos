@@ -1,5 +1,6 @@
 import ShortnerModel from "../model/ShortnerModel.js";
 import crypto from 'crypto';
+import userAgent from 'user-agents'
 class ShortnerController {
 
   async getOne(request, response) {
@@ -83,8 +84,15 @@ class ShortnerController {
         return response.redirect("/")
     }
 
-    shortner.hits += 1;
+    const userAgentData = userAgent(request.headers['user-agents'])
 
+    const metadata = {
+      ip: request.ip,
+      parser: parser(request.headers['user-agents']),
+    }
+
+    shortner.hits += 1;
+    shortner.metadata = [...shortner.metadata, metadata]
     await shortner.save();
 
     response.redirect(shortner.link);

@@ -1,5 +1,5 @@
 {
-  "name": "shortner",
+  "name": "@monorepo/shortner",
   "version": "1.0.0",
   "description": "backend para encurtador de link",
   "main": "index.js",
@@ -17,7 +17,8 @@
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "user-agents": "^1.0.937"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
