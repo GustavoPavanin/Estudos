@@ -8,7 +8,7 @@ import UserRouter from "./router/UserRouter.js"
 import ShortnerRouter from "./router/ShortnerRouter.js"
 //const UserRouter = require("./router/UserRouter"); /* sem type modules */ 
 import detEnv from 'dotenv';
-import { AuthMiddleware } from "./middleware/auth.middleware.js";
+import AuthMiddleware from "./middleware/auth.middleware.js";
 
 detEnv.config();
 

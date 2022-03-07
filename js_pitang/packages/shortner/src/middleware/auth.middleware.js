@@ -5,7 +5,7 @@ dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-export const AuthMiddleware = (request, response, next) => {
+const AuthMiddleware = (request, response, next) => {
     const { authorization } = request.headers;
 
     if (request.url === '/api/login' || (request.url === '/api/users' && request.method === "POST")) {
@@ -26,5 +26,7 @@ export const AuthMiddleware = (request, response, next) => {
         return response.status(401).json({ message: "Token Invalid" });
     }
 
-    next();
+    return next();
 }
+
+export default AuthMiddleware;

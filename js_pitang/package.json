@@ -1,10 +1,13 @@
 {
   "name": "pitang-trainee",
   "version":"1.0.0",
-  "repository": "",
+  "repository": "https://github.com/GustavoPavanin/Estudos/tree/main/js_pitang",
   "author": "Gustavo Pavanin",
   "license": "MIT",
   "private": true,
+  "devDependencies": {
+    "@monorepo/eslint-config-node" : "*"
+  },
   "workspaces":{
     "packages": [
       "packages/*"
