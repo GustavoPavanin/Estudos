@@ -1,16 +1,13 @@
 {
   "name": "pitang-trainee",
-  "version": "1.0.0",
+  "version":"1.0.0",
   "repository": "",
   "author": "Gustavo Pavanin",
   "license": "MIT",
   "private": true,
-  "workspaces": {
+  "workspaces":{
     "packages": [
       "packages/*"
     ]
-  },
-  "devDependencies": {
-    "@monorepo/eslint-config-node": "*"
   }
 }
