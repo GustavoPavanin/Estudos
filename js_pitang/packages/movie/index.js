@@ -2,17 +2,19 @@ import prisma from "@prisma/client";
 
 const prismaClient = new prisma.PrismaClient();
 
-async () => {
+(async () => {
   try {
-    prismaClient.user.create({
+    await prismaClient.user.create({
       data: {
-        name: "Gustavo",
+        phone: "99989999",
+        name: "Leone",
+        email: "keven.leone@me.com",
         birthDate: new Date(),
         country: "Brasil",
-        region: "SUDESTE",
+        region: "NORTE",
       },
     });
   } catch (error) {
     console.log(error);
   }
-};
+})();
