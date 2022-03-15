@@ -23,11 +23,19 @@ public class EmpresasService extends HttpServlet {
 
 		List<Empresa> empresas = new Banco().getEmpresas();
 		
-		Gson gson = new Gson();
-		String json = gson.toJson(empresas);
+		String valor = request.getHeader("Accept");
 		
-		response.setContentType("application/json");
-		response.getWriter().print(json);
+		if(valor.contains("json")) {
+			Gson gson = new Gson();
+			String json = gson.toJson(empresas);
+			
+			response.setContentType("application/json");
+			response.getWriter().print(json);
+		} else {
+			response.setContentType("application/json");
+			response.getWriter().print("{'message':'null content'}");
+		}
+		
 	}
 
 }
