@@ -81,7 +81,7 @@ model Movie {
   parental_guidance ParentalGuidance @default(GENERAL_AUDIENCE)
   thumbnail         String?
   rating            Float
-  languages         String[] //prisma não deixou usar String[]
+  languages         String[]
   Session           Session[]
 }
 
@@ -92,13 +92,13 @@ model Ticket {
   price         Decimal    @db.Decimal(10, 2)
   paymentStatus Boolean    @default(false)
   type          TicketType @default(STANDARD)
-  pucharseDate  DateTime?
+  pucharseDate  DateTime?  @default(now())
   sessionId     String
-  userId        Int
+  userId        String
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        String     @id @default(uuid())
   role      UserRole @default(USER)
   password  String
   name      String
